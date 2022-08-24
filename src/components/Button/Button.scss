@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.button {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}
+
+.button_color-primary {
+    width: 108px;
+    height: 41px;
+    background: $color-primary;
+    border-radius: 7px;
+    color: $color-light;
+    justify-content: center;
+}
+
+.button_color-secondary {
+    width: 176px;
+    height: 36px;
+    background: $color-secondary;
+    border-radius: 7px;
+    color: $color-dark;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+.button_disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}

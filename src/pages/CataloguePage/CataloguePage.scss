@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.page-container {
+    display: flex;
+    width: 376px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: $color-light;
+    padding: 24px 32px 0;
+
+}

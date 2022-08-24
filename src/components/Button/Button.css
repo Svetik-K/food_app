@@ -1,0 +1,32 @@
+.button {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+}
+
+.button_color-primary {
+  width: 108px;
+  height: 41px;
+  background: #FF0000;
+  border-radius: 7px;
+  color: #FFFFFF;
+  justify-content: center;
+}
+
+.button_color-secondary {
+  width: 176px;
+  height: 36px;
+  background: linear-gradient(98.81deg, #FFF0F0 -0.82%, #FFDFDF 101.53%);
+  border-radius: 7px;
+  color: #000000;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.button_disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+/*# sourceMappingURL=Button.css.map */

@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+.dropdown {
+  width: 176px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.button_dropdown {
+  display: flex;
+  justify-content: flex-start;
+  width: 176px;
+  height: 36px;
+  background: linear-gradient(98.81deg, #FFF0F0 -0.82%, #FFDFDF 101.53%);
+  border-radius: 7px;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 28px;
+  padding: 4px 20px;
+  color: #000000;
+  border: none;
+}
+
+.dropdown__list {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+  border-radius: 7px;
+}
+
+.dropdown__list.isVisible {
+  display: block;
+}
+
+.list__item {
+  width: 176px;
+  height: 36px;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 28px;
+  background: linear-gradient(98.81deg, #FFF0F0 -0.82%, #FFDFDF 101.53%);
+  padding: 4px 20px;
+  color: #000000;
+}
+
+.list__item:first-child {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.list__item:last-child {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.button_disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+/*# sourceMappingURL=MultiDropdown.css.map */

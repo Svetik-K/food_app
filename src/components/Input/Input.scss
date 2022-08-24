@@ -1,0 +1,41 @@
+@import '../../variables.scss';
+
+.search {
+    display: block;
+    width: 311px;
+    height: 36px;
+    box-sizing: border-box;
+    background: $color-secondary;
+    border-radius: 7px;
+    border: none;
+    padding: 4px 30px;
+    
+    &:focus {
+        outline: none;
+    }
+}
+
+.input_disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.button_search {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 18px;
+    height: 16px;
+    background-color: transparent;
+    border: none;
+    background-image: url(../../assets/svg/search-icon.svg);
+    background-position: center;
+}
+
+::placeholder {
+    padding-left: 30px;
+}

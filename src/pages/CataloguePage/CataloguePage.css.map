@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,eAAe,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,MAAM;EACd,gBAAgB,ECLN,OAAO;EDMjB,OAAO,EAAE,WAAW;CAEvB",
+    "sources": [
+        "CataloguePage.scss",
+        "../../variables.scss"
+    ],
+    "names": [],
+    "file": "CataloguePage.css"
+}
