@@ -19,12 +19,6 @@ export type MultiDropdownProps = {
 export const MultiDropdown: React.FC<MultiDropdownProps> = ({options, value, pluralizeOptions, onChange, ...props}) => {
     const [isOpen, setOpen] = React.useState(false);
 
-    // const toggleDropdownList = (e: React.MouseEvent) => {
-    //     setOpen(!isOpen);
-    //     e.preventDefault();
-    //     console.log('wtf')
-    // }
- 
     let buttonClasses = classNames('button', 'button_dropdown');
     if(props.disabled) {
         buttonClasses =  classNames(`${buttonClasses}`, 'button_disabled');
@@ -50,7 +44,7 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = ({options, value, plu
                 Pick categories
             </button>
             {isOpen && !props.disabled &&
-            <ul className='dropdown__list' >
+            <ul className={isOpen ? 'dropdown__list active' : 'dropdown__list'} >
                 {options.map((option: any) => {
                     return <li className='list__item' 
                     value={option} 

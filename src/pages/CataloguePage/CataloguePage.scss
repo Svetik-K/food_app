@@ -2,10 +2,13 @@
 
 .page-container {
     display: flex;
-    width: 376px;
+    flex-direction: column;
+    max-width: 1420px;
     height: 100vh;
     margin: 0 auto;
-    background-color: $color-light;
-    padding: 24px 32px 0;
+    padding: 24px 24px 0;
+    background: url(../../assets/images/Pattern.png) $color-light;
+    background-position: top right;
+    background-repeat: no-repeat;
 
 }

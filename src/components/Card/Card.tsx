@@ -1,21 +1,22 @@
 import './Card.scss'
 
-export type CardProps = {
-    image: string;
-    title: React.ReactNode;
-    subtitle: React.ReactNode;
-    content?: React.ReactNode;
+export type CardProps = React.PropsWithChildren<{
+    children?: React.ReactNode;
     onClick?: React.MouseEventHandler;
-};
+    recipe: any;
+}>;
 
-export const Card: React.FC<CardProps> = ({image, title, subtitle, content, onClick, ...props}) => {
+export const Card: React.FC<CardProps> = ({recipe, children,  onClick, ...props}) => {
     return (
         <div className="card" onClick={onClick} {...props}>
-            <img src={image} />
-            <h3>{title}</h3>
-            <h4>{subtitle}</h4>
-            <div>{content}</div>
+            <img src={recipe.image} />
+            <div className='card__title'>{recipe.title}</div>
+      
+            <button className='button button_plus'>+</button>
         </div>
     )
 };
 
+
+/*      <div className='card__time'>Time to cook: {recipe.readyInMinutes}</div>
+            <div className='card__score'>{recipe.healthScore} health score</div> */
