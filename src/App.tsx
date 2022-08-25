@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import styles from './App.module.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CataloguePage } from './pages/CataloguePage/CataloguePage';
 
@@ -7,7 +7,7 @@ import { CataloguePage } from './pages/CataloguePage/CataloguePage';
 
 function App() {
   return (
-    <div className='app-body'>
+    <div className={styles.body}>
       <CataloguePage></CataloguePage>
       
     </div>

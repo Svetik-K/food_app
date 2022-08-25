@@ -1,6 +1,6 @@
 import React from 'react';
 const classNames = require('classnames');
-import './Button.scss';
+import styles from './Button.module.scss';
 import {Loader, LoaderSize } from '../Loader/Loader';
 
 
@@ -16,10 +16,10 @@ export type ButtonProps = React.PropsWithChildren<{
 }> & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: React.FC<ButtonProps> = ({children, color = ButtonColor.primary, loading = false,  ...props}) => {
-    let buttonClasses: string = props.className ? `${props.className}` : classNames(`button`, `button_color-${color}`);
+    let buttonClasses: string = props.className ? `${props.className}` : classNames(styles.button, `${styles.button_color}-${color}`);
 
     if(props.disabled || loading) {
-        buttonClasses = classNames(`${buttonClasses}`, 'button_disabled');
+        buttonClasses = classNames(`${buttonClasses}`, styles.button_disabled);
     }
 
     return (

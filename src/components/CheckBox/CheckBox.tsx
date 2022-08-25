@@ -1,5 +1,5 @@
 import React from 'react';
-import './CheckBox.scss';
+import styles from './CheckBox.module.scss';
 
 export type CheckBoxProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -10,6 +10,6 @@ export type CheckBoxProps = Omit<
 
 export const CheckBox: React.FC<CheckBoxProps> = ({onChange, ...props}) => {
     return (
-        <input type="checkbox" className='checkbox' onChange={(event) => onChange(event.target.checked)} {...props}></input>
+        <input type="checkbox" className={styles.checkbox} onChange={(event) => onChange(event.target.checked)} {...props}></input>
     )
 };

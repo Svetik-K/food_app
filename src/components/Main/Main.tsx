@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from '@components/Card/Card';
-import './Main.scss';
+import styles from './Main.module.scss';
 import axios from 'axios';
-
-
-
 
 export const Main = ({...props}) => {
     
@@ -14,19 +11,18 @@ export const Main = ({...props}) => {
         const fetch = async () => {
             const result = await axios({
                 method: 'get',
-                url: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=7bee5a1c625b4f02a84298107297cb68&type=dessert'
+                url: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=7bee5a1c625b4f02a84298107297cb68&addRecipeInformation=true&type=fingerfood'
             })
-            console.log(result.data)
             setRecipes(result.data.results); 
+            console.log(result.data.results)
     }
     fetch();
     }, [])
 
-    console.log(recipes)
     return (
-        <div className='main' {...props}>
-            {recipes.map(recipe => {
-                return <Card  recipe={recipe} >
+        <div className={styles.main} {...props}>
+            {recipes.map((recipe: Object) => {
+                return <Card recipe={recipe} >
                 </Card>
             })}       
         </div>

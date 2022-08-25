@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import './MultiDropdown.scss';
+import styles from './MultiDropdown.module.scss';
 
 export type Option = {
     key: string;
@@ -19,9 +19,9 @@ export type MultiDropdownProps = {
 export const MultiDropdown: React.FC<MultiDropdownProps> = ({options, value, pluralizeOptions, onChange, ...props}) => {
     const [isOpen, setOpen] = React.useState(false);
 
-    let buttonClasses = classNames('button', 'button_dropdown');
+    let buttonClasses = classNames((styles.button, styles.button_dropdown));
     if(props.disabled) {
-        buttonClasses =  classNames(`${buttonClasses}`, 'button_disabled');
+        buttonClasses =  classNames(`${buttonClasses}`, styles.button_disabled);
     }
 
     function checkValue(item: any) {
@@ -38,15 +38,15 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = ({options, value, plu
     }
 
     return (
-        <div className='dropdown'>
+        <div className={styles.dropdown}>
             <button className={buttonClasses} onClick={()=> setOpen(!isOpen)} >
                 {pluralizeOptions(value)}
                 Pick categories
             </button>
             {isOpen && !props.disabled &&
-            <ul className={isOpen ? 'dropdown__list active' : 'dropdown__list'} >
+            <ul className={isOpen ? `${styles.dropdown__list} ${styles.active}`: styles.dropdown__list} >
                 {options.map((option: any) => {
-                    return <li className='list__item' 
+                    return <li className={styles.list__item} 
                     value={option} 
                     key={option.key} 
                     onClick={() => onChange(checkValue(option))}>

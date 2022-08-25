@@ -1,4 +1,4 @@
-import './Card.scss'
+import styles from './Card.module.scss'
 
 export type CardProps = React.PropsWithChildren<{
     children?: React.ReactNode;
@@ -8,15 +8,19 @@ export type CardProps = React.PropsWithChildren<{
 
 export const Card: React.FC<CardProps> = ({recipe, children,  onClick, ...props}) => {
     return (
-        <div className="card" onClick={onClick} {...props}>
+        <div className={styles.card} onClick={onClick} {...props}>
+            <div className={styles.card__likes}>{recipe.aggregateLikes}</div>
             <img src={recipe.image} />
-            <div className='card__title'>{recipe.title}</div>
-      
-            <button className='button button_plus'>+</button>
+            <div className={styles.card__title}>{recipe.title}</div>
+            <div className={styles.card__time}>Time to cook: {recipe.readyInMinutes} min</div>
+            <div className={styles.card__score}>health score: {recipe.healthScore}</div>
+            <button className={styles.button_plus}>+</button>
         </div>
     )
 };
 
 
-/*      <div className='card__time'>Time to cook: {recipe.readyInMinutes}</div>
-            <div className='card__score'>{recipe.healthScore} health score</div> */
+/*      
+        <a href="#" className='card__link'>See Recipe</a>
+        <button className='button button_heart'></button>
+         */

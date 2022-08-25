@@ -9,10 +9,10 @@ html, body {
 * {
   box-sizing: border-box;
 }
-.app-body {
+.body {
   width: 100%;
   height: 100%;
-  background: $color-secondary;
+  background: $color-gradient;
 }
 
  
@@ -49,11 +49,3 @@ html, body {
 }
 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

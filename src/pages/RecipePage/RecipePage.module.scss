@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.recipe {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.recipe__image {
+    width: 100%;
+    height: auto;
+}
+
+.button_return {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    background: $color-pink;
+}
+
+.line {
+    width: 15%;
+    height: 5px;
+    background-color: $color-pink;
+    text-align: center;
+    // margin: 0 auto;
+}
+
+.recipe__title {
+    font-family: $font-main;
+    @include font(27px, 35px, 500);
+}

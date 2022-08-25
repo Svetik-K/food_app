@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import './Input.scss'
+import styles from './Input.module.scss'
 
 export type InputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -16,9 +16,9 @@ export const Input: React.FC<InputProps> = ({value, onChange, ...props}) => {
   }
 
   return (
-    <div className="input-wrapper">
-        <input type="text" className='search' value={value} onChange={(event) => onChange(event.target.value)} {...props}/>
-        <button className='button button_search'></button>
+    <div className={styles.wrapper}>
+        <input type="text" className={styles.search} value={value} onChange={(event) => onChange(event.target.value)} {...props}/>
+        <button className={styles.button_search}></button>
     </div>
 
   )  

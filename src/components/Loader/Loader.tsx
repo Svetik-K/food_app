@@ -1,6 +1,6 @@
 const classNames = require('classnames');
 import React from 'react'
-import './Loader.scss'
+import styles from './Loader.module.scss';
 
 export enum LoaderSize {
     s = 's',
@@ -15,7 +15,7 @@ export type LoaderProps = {
 };
 
 export const Loader: React.FC<LoaderProps> = ({loading = true, size = LoaderSize.m, className}) => {
-    let loaderClasses = classNames(`loader`, `loader_size-${size}`, `${className}`);
+    let loaderClasses = classNames(styles.loader, `${styles.loader_size}-${size}`, `${className}`);
     if(!loading) {
         return null;
     }
