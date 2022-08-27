@@ -1,6 +1,6 @@
-const classNames = require('classnames');
-import React from 'react'
-import styles from './Loader.module.scss';
+const classNames = require("classnames");
+import React from "react"
+import styles from "./Loader.module.scss";
 
 export enum LoaderSize {
     s = 's',
