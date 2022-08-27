@@ -1,18 +1,38 @@
-import styles from './CataloguePage.module.scss';
-import { Main } from '@components/Main/Main';
+import styles from './RecipesPage.module.scss';
+import React, { useEffect, useState } from 'react';
 import { MultiDropdown } from '@components/MultiDropdown/MultiDropdown';
 import { Input } from '@components/Input/Input';
+import { Card } from '@components/Card/Card';
+import axios from 'axios';
+import { IRecipeCard } from '@utils/IRecipeCard';
 
 
-type CataloguePageProps = {
+type RecipesPageProps = {
     children?: React.ReactNode;
 }
 
-export const CataloguePage: React.FC<CataloguePageProps> = ({children, ...props}) => {
+
+export const RecipesPage: React.FC<RecipesPageProps> = ({...props}) => {
+
+    const [recipesFound, setRecipes] = useState<IRecipeCard[]>([]);
+
+    let query = 'dessert'; 
+
+    useEffect(() => {
+        const fetchRecipes = async () => {
+            const result = await axios({
+                method: 'get',
+                url: `https://api.spoonacular.com/recipes/complexSearch?apiKey=7bee5a1c625b4f02a84298107297cb68&addRecipeInformation=true&type=${query}`
+            })
+            setRecipes(result.data.results); 
+    }
+    fetchRecipes();
+    }, [])
 
     return (
-        <div className={styles.container} {...props}>
+        <div className={styles.container}>
             <header className={styles.header}>
+
                 <Input value={''} onChange={() => console.log('oj')} placeholder={'Search'}></Input>
                 
                 <MultiDropdown 
@@ -37,10 +57,19 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({children, ...props}
                 ]}>
                 </MultiDropdown>
             </header>
-   
-            <Main></Main>
+            
+            <div className={styles.main} >
+                {recipesFound.length && recipesFound.map((recipe: any) => {
+                    return (<Card  recipe={recipe} key={recipe.id}></Card>)
+            })}       
+            </div>
+            
 
         </div>    
         
     )
 }
+
+// https://api.spoonacular.com/recipes/complexSearch
+
+// https://api.spoonacular.com/recipes/{id}/information

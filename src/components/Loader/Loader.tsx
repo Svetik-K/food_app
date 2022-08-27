@@ -15,7 +15,7 @@ export type LoaderProps = {
 };
 
 export const Loader: React.FC<LoaderProps> = ({loading = true, size = LoaderSize.m, className}) => {
-    let loaderClasses = classNames(styles.loader, `${styles.loader_size}-${size}`, `${className}`);
+    let loaderClasses = classNames(styles.loader, styles[`loader_size-${size}`], `${className}`);
     if(!loading) {
         return null;
     }

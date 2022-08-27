@@ -1,5 +1,5 @@
-@import '../../variables.scss';
-@import '../../mixins.scss';
+@import '@styles/variables.scss';
+@import '@styles/mixins.scss';
 
 .card {
     position: relative;
@@ -62,17 +62,20 @@
       
     }
 
+    &__link {
+        position: absolute;
+        bottom: 8px;
+        right: 12px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: $color-light;
+        background-color: $color-primary;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
 }
 
-.button_plus {
-    position: absolute;
-    bottom: 8px;
-    right: 12px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    color: $color-light;
-    background-color: $color-primary;
-    border: none;
-    cursor: pointer;
-}

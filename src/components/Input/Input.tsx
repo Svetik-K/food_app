@@ -12,7 +12,7 @@ export type InputProps = Omit<
 
 export const Input: React.FC<InputProps> = ({value, onChange, ...props}) => {
   if(props.disabled) {
-    props.className = classNames(`${props.className}`, 'input_disabled');
+    props.className = classNames(`${props.className}`, styles.input_disabled);
   }
 
   return (

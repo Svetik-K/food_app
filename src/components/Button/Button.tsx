@@ -11,12 +11,12 @@ export enum ButtonColor {
  
 export type ButtonProps = React.PropsWithChildren<{
     loading?: boolean;
-    color?: ButtonColor;
+    color: ButtonColor;
     children: React.ReactNode;
 }> & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: React.FC<ButtonProps> = ({children, color = ButtonColor.primary, loading = false,  ...props}) => {
-    let buttonClasses: string = props.className ? `${props.className}` : classNames(styles.button, `${styles.button_color}-${color}`);
+    let buttonClasses: string = props.className ? `${props.className}` : classNames(styles.button, styles[`button_color-${color}`]);
 
     if(props.disabled || loading) {
         buttonClasses = classNames(`${buttonClasses}`, styles.button_disabled);

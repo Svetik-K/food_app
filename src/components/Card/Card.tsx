@@ -1,20 +1,22 @@
-import styles from './Card.module.scss'
+import styles from './Card.module.scss';
+import { Link } from 'react-router-dom';
+import { IRecipeCard } from '@utils/IRecipeCard';
 
 export type CardProps = React.PropsWithChildren<{
     children?: React.ReactNode;
     onClick?: React.MouseEventHandler;
-    recipe: any;
+    recipe: IRecipeCard;
 }>;
 
-export const Card: React.FC<CardProps> = ({recipe, children,  onClick, ...props}) => {
+export const Card: React.FC<CardProps> = ({recipe, onClick, ...props}) => {
     return (
-        <div className={styles.card} onClick={onClick} {...props}>
+        <div key={recipe.id} className={styles.card} onClick={onClick} {...props}>
             <div className={styles.card__likes}>{recipe.aggregateLikes}</div>
-            <img src={recipe.image} />
+            <img src={recipe.image} alt={recipe.title}/>
             <div className={styles.card__title}>{recipe.title}</div>
             <div className={styles.card__time}>Time to cook: {recipe.readyInMinutes} min</div>
             <div className={styles.card__score}>health score: {recipe.healthScore}</div>
-            <button className={styles.button_plus}>+</button>
+            <Link className={styles.card__link} to={`/recipe/${recipe.id}`}>+</Link>
         </div>
     )
 };

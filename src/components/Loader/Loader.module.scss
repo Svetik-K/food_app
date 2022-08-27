@@ -1,9 +1,12 @@
 .loader {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
     background-color: transparent;
-    border: 4px solid $color-primary;
+    background-image: url(../../assets/svg/Loader.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    border: none;
+    animation: load 0.8s infinite;
 }
 .loader_size-s {
     width: 20px;
@@ -16,4 +19,13 @@
 .loader_size-l {
     width: 60px;
     height: 60px;
+}
+
+@keyframes load {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg)
+    }
 }
