@@ -10,9 +10,8 @@ import styles from "./RecipesPage.module.scss";
 export const RecipesPage = () => {
   const [recipesFound, setRecipes] = useState([]);
 
-  let query = "dessert";
-
   useEffect(() => {
+    const query = "fingerfood";
     const fetchRecipes = async () => {
       const result = await axios({
         method: "get",

@@ -13,7 +13,7 @@
     width: 108px;
     height: 41px;
     background: $color-primary;
-    border-radius: 7px;
+    border-radius: $br;
     color: $color-light;
     justify-content: center;
 }
@@ -22,7 +22,7 @@
     width: 176px;
     height: 36px;
     background: $color-gradient;
-    border-radius: 7px;
+    border-radius: $br;
     color: $color-dark;
     padding: 0 20px;
     justify-content: space-between;
