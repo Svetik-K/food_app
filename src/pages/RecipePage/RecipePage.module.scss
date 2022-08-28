@@ -5,9 +5,13 @@ a {
     color: darken($color-pink, 15%);
     text-decoration: none;
 }
+ol {
+    padding-left: 12px;
+}
+
 .recipe {
     position: relative;
-    width: 376px;
+    width: 414px;
     margin: 0 auto;
 
     &__image {
@@ -18,7 +22,7 @@ a {
     }
     
     &__info {
-        padding: 0 15px 15px 15px;
+        padding: 0 15px 15px 25px;
     }
 
     &__title {
@@ -33,7 +37,7 @@ a {
         @include font(14px, 19px, 400);     
         letter-spacing: 0.5px;
         color: $color-text-secondary;
-        padding-right: 35px;
+        padding-right: 50px;
         color: darken($color-pink, 15%);
     }
 
@@ -49,7 +53,6 @@ a {
         @include font(12px, 16px, 500);    
         color: $color-dark;
         margin-top: 25px;
-        text-align: justify;
     }
 
     &__ingredients {
