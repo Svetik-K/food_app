@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classNames from "classnames";
 
+import searchIcon from "../../assets/svg/search-icon.svg";
 import styles from "./Input.module.scss";
 
 export type InputProps = Omit<
@@ -26,7 +27,7 @@ export const Input: React.FC<InputProps> = ({ value, onChange, ...props }) => {
         onChange={(event) => onChange(event.target.value)}
         {...props}
       />
-      <button className={styles.button_search}></button>
+      <button className={styles.button_search} style={{backgroundImage: `url(${searchIcon})`, backgroundPosition: "center"}}></button>
     </div>
   );
 };

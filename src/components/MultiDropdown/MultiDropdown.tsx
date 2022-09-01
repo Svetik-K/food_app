@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./MultiDropdown.module.scss";
 
@@ -11,45 +11,30 @@ export type Option = {
 
 export type MultiDropdownProps = {
   options: Option[];
-  value: Option[];
-  onChange: (value: Option[]) => void;
+  value: string;
+  onChange: (value: string) => void;
   disabled?: boolean;
-  pluralizeOptions: (value: Option[]) => string;
   children?: React.ReactNode;
 };
 
 export const MultiDropdown: React.FC<MultiDropdownProps> = ({
   options,
   value,
-  pluralizeOptions,
   onChange,
   ...props
 }) => {
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   let buttonClasses = classNames((styles.button, styles.button_dropdown));
   if (props.disabled) {
     buttonClasses = classNames(`${buttonClasses}`, styles.button_disabled);
   }
 
-  function checkValue(item: any) {
-    let newValue = [];
-    if (value.some((element) => element.key === item.key)) {
-      value = value.filter((element) => element.key !== item.key);
-      for (let element of value) {
-        newValue.push(element);
-      }
-    } else {
-      newValue.push(item);
-    }
-    return newValue;
-  }
 
   return (
     <div className={styles.dropdown}>
       <button className={buttonClasses} onClick={() => setOpen(!isOpen)}>
-        {pluralizeOptions(value)}
-        Pick categories
+        {value}
       </button>
       {isOpen && !props.disabled && (
         <ul
@@ -59,13 +44,13 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = ({
               : styles.dropdown__list
           }
         >
-          {options.map((option: any) => {
+          {options.map((option: Option) => {
             return (
               <li
                 className={styles.list__item}
-                value={option}
+                value={option.value}
                 key={option.key}
-                onClick={() => onChange(checkValue(option))}
+                onClick={() => onChange(option.value)}
               >
                 {option.value}
               </li>

@@ -1,6 +1,7 @@
 import React from "react";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import routes from "@config/Routes";
 
 import styles from "./App.module.scss";
 import { RecipePage } from "./pages/RecipePage/RecipePage";
@@ -10,10 +11,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RecipesPage />} />
+        <Route path={routes.index} element={<RecipesPage />} />
         <Route path="/recipe">
           <Route path=":id" element={<RecipePage />}></Route>
         </Route>
+        <Route path="*" element={<Navigate to={routes.index} replace />}></Route>
       </Routes>
     </BrowserRouter>
   );

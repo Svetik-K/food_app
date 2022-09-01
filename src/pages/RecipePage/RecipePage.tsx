@@ -2,17 +2,26 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 import parse from "html-react-parser";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
+import arrow from "../../assets/svg/arrow.svg";
 import styles from "./RecipePage.module.scss";
 
+type Recipe = {
+  id: string | number;
+  image: string;
+  title: string;
+  servings: string;
+  pricePerServing: string;
+  summary: HTMLAllCollection;
+  extendedIngredients: string[];
+  instructions: HTMLAllCollection;
+};
+
 export const RecipePage = () => {
-  const [recipeFetched, setRecipe] = useState([]);
-
+  const [recipeFetched, setRecipe] = useState<Recipe>();
+  const { id } = useParams();
   useEffect(() => {
-    const location = window.location.pathname;
-    const id = location.split("/")[2];
-
     const fetchRecipe = async () => {
       const result = await axios({
         method: "get",
@@ -23,46 +32,42 @@ export const RecipePage = () => {
     fetchRecipe();
   }, []);
 
-  const recipe = [recipeFetched];
-
   return (
-    <div>
-      {recipe.map((item: any) => {
-        return (
-          <div className={styles.recipe} key={item.id}>
-            <Link className={styles.button_return} to="/"></Link>
-            <img className={styles.recipe__image} src={item.image} />
-            <div className={styles.line}></div>
-            <div className={styles.recipe__info}>
-              <div className={styles.recipe__title}>{item.title}</div>
-              <span className={styles.recipe__servings}>
-                Servings: {item.servings} pers
-              </span>
-              <span className={styles.recipe__price}>
-                Price per serving: {item.pricePerServing}$
-              </span>
-              <div className={styles.recipe__summary}>
-                {parse(`${item.summary}`)}
-              </div>
-              <ul className={styles.recipe__ingredients}>
-                <p>Ingredients:</p>
-                {item.extendedIngredients &&
-                  item.extendedIngredients.map((item: any, index: number) => {
-                    return (
-                      <li className={styles.list__item} key={index}>
-                        {item.original}
-                      </li>
-                    );
-                  })}
+    <div className={styles.container}>
+      {recipeFetched &&
+        <div className={styles.recipe} key={recipeFetched.id}>
+          <Link className={styles.button_return} to="/" style={{backgroundImage: `url(${arrow})`, backgroundPosition: "center", backgroundRepeat: "no-repeat"}}></Link>
+          <img className={styles.recipe__image} src={recipeFetched.image} />
+          <div className={styles.line}></div>
+          <div className={styles.recipe__info}>
+            <div className={styles.recipe__title}>{recipeFetched.title}</div>
+            <span className={styles.recipe__servings}>
+              Servings: {recipeFetched.servings} pers
+            </span>
+            <span className={styles.recipe__price}>
+              Price per serving: {recipeFetched.pricePerServing}$
+            </span>
+            <div className={styles.recipe__summary}>
+              {parse(`${recipeFetched.summary}`)}
+            </div>
+            <ul className={styles.recipe__ingredients}>
+              <p>Ingredients:</p>
+              {recipeFetched.extendedIngredients &&
+                recipeFetched.extendedIngredients.map((item: any, index: number) => {
+                  return (
+                    <li className={styles.list__item} key={index}>
+                      {item.original}
+                    </li>
+                  );
+                })}
               </ul>
-              <div className={styles.recipe__instructions}>
-                <p>Instructions:</p>
-                {parse(`${item.instructions}`)}
-              </div>
+            <div className={styles.recipe__instructions}>
+              <p className={styles.instructions__title}>Instructions:</p>
+              {parse(`${recipeFetched.instructions}`)}
             </div>
           </div>
-        );
-      })}
+        </div>
+      }
     </div>
   );
 };

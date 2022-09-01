@@ -1,10 +1,12 @@
 @import "@styles/variables.scss";
 @import "@styles/mixins.scss";
 
+.wrapper {
+    width: 100%;
+}
 .search {
     width: 100%;
     height: 36px;
-    box-sizing: border-box;
     background: $color-gradient;
     border-radius: $br;
     border: none;
@@ -33,8 +35,6 @@
     height: 16px;
     background-color: transparent;
     border: none;
-    background-image: url(../../assets/svg/search-icon.svg);
-    background-position: center;
     cursor: pointer;
 }
 

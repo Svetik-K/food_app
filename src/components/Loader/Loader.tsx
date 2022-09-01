@@ -1,5 +1,7 @@
 const classNames = require("classnames");
 import React from "react"
+
+import loader from "../../assets/svg/Loader.svg";
 import styles from "./Loader.module.scss";
 
 export enum LoaderSize {
@@ -20,7 +22,10 @@ export const Loader: React.FC<LoaderProps> = ({loading = true, size = LoaderSize
         return null;
     }
     return (
-        <div className={loaderClasses}></div>
+        <div 
+          className={loaderClasses}
+          style={{backgroundImage: `urk(${loader})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "contain"}}> 
+        </div>
     )
 };
 

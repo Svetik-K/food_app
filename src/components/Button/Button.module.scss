@@ -4,31 +4,30 @@
 .button {
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     border: none;
     cursor: pointer;
-}
 
-.button_color-primary {
-    width: 108px;
-    height: 41px;
-    background: $color-primary;
-    border-radius: $br;
-    color: $color-light;
-    justify-content: center;
-}
+    &_color-primary {
+        width: 108px;
+        height: 41px;
+        background: $color-primary;
+        border-radius: $br;
+        color: $color-light;
+        justify-content: center;
+    }
 
-.button_color-secondary {
-    width: 176px;
-    height: 36px;
-    background: $color-gradient;
-    border-radius: $br;
-    color: $color-dark;
-    padding: 0 20px;
-    justify-content: space-between;
-}
+    &_color-secondary {
+        width: 176px;
+        height: 36px;
+        background: $color-gradient;
+        border-radius: $br;
+        color: $color-dark;
+        padding: 0 20px;
+        justify-content: space-between;
+    }
 
-.button_disabled {
-    opacity: 0.2;
-    pointer-events: none;
+    &_disabled {
+        opacity: 0.2;
+        pointer-events: none;
+    }
 }
