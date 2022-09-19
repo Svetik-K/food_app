@@ -1,0 +1,33 @@
+@import "@styles/variables.scss";
+@import "@styles/mixins.scss";
+
+.button {
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+
+    &_color-primary {
+        width: 108px;
+        height: 41px;
+        background: $color-primary;
+        border-radius: $br;
+        color: $color-light;
+        justify-content: center;
+    }
+
+    &_color-secondary {
+        width: 176px;
+        height: 36px;
+        background: $color-gradient;
+        border-radius: $br;
+        color: $color-dark;
+        padding: 0 20px;
+        justify-content: space-between;
+    }
+
+    &_disabled {
+        opacity: 0.2;
+        pointer-events: none;
+    }
+}

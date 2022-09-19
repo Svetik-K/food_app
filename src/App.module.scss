@@ -1,0 +1,48 @@
+@import "@styles/variables.scss";
+
+html, body {
+  width: 100%;
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+  background: $color-gradient;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+ 
+@font-face {
+  font-family: 'Avenir';
+  src: local('Avenir'), url(./fonts/AvenirLTStd-Black.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: local('Avenir'), url(./fonts/AvenirLTStd-Book.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: local('Avenir'), url(./fonts/AvenirLTStd-Roman.otf) format('opentype');
+}
+
+
+@font-face {
+    font-family: 'DM Sans';
+    src: local('DM Sans'), url(./fonts/DMSans-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: local('DM Sans'), url(./fonts/DMSans-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 900;
+  src: local('DM Sans'), url(./fonts/DMSans-Bold.ttf) format('truetype');
+}
+
+

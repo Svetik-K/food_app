@@ -1,0 +1,122 @@
+@import "@styles/variables.scss";
+@import "@styles/mixins.scss";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-main;
+    @include font(12px, 16px, 500);
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    color: darken($color-pink, 15%);
+    text-decoration: none;
+}
+ol {
+    padding-left: 12px;
+}
+
+.container {
+    width: 414px;
+    margin: 0 auto;
+}
+
+.recipe {
+    position: relative;
+    width: 100%;
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 18px;
+    }
+    
+    &__info {
+        padding: 0 15px 15px 25px;
+    }
+
+    &__title {
+        font-family: $font-main;
+        @include font(27px, 35px, 500);
+        color: $color-title;
+        margin-bottom: 15px;
+    }
+
+    &__servings {
+        font-family: $font-main;
+        @include font(14px, 19px, 400);     
+        letter-spacing: 0.5px;
+        color: $color-text-secondary;
+        padding-right: 50px;
+        color: darken($color-pink, 15%);
+    }
+
+    &__price {
+        font-family: $font-main;
+        @include font(14px, 19px, 400);     
+        letter-spacing: 0.5px;
+        color: $color-text-secondary;
+    }
+
+    &__summary {
+        font-family: $font-main;
+        @include font(12px, 16px, 500);    
+        color: $color-dark;
+        margin-top: 25px;
+    }
+
+    &__ingredients {
+        p {
+            font-family: $font-main;
+            @include font(16px, 19px, 500);
+            color: $color-title;  
+        }
+    }
+    &__instructions {
+        font-family: $font-main;
+        @include font(12px, 16px, 500);
+        color: $color-title;        
+    }
+}
+
+.instructions__title {
+    font-family: $font-main;
+    @include font(16px, 19px, 500);
+    color: $color-title; 
+    padding-left: 40px;       
+}
+
+.button_return {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: none;
+    border-radius: $br;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+}
+
+.line {
+    width: 15%;
+    height: 5px;
+    background-color: $color-pink;
+    margin: 0 auto;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.list__item {
+    font-family: $font-main;
+    @include font(12px, 16px, 500);    
+    color: $color-dark;
+}

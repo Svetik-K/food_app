@@ -1,0 +1,9 @@
+.page-container {
+  display: flex;
+  width: 376px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  padding: 24px 32px 0;
+}
+/*# sourceMappingURL=CataloguePage.css.map */
